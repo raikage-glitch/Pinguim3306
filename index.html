@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recrutamento Pinguim Secreto - Nível 1</title>
+    <style>
+        /* Estilização CSS */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000000;
+            color: #00FF00;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 30px;
+            border: 2px solid #00FF00;
+            box-shadow: 0 0 20px #00FF00;
+        }
+
+        h1 {
+            color: #00FFFF;
+            border-bottom: 1px dashed #00FF00;
+            padding-bottom: 10px;
+        }
+
+        .puzzle-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #0a0a0a;
+            border: 1px solid #00AA00;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 15px 0;
+            width: 80%;
+            background-color: #000000;
+            color: #00FF00;
+            border: 1px solid #00FF00;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #005500;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00AA00;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: #FF0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🐧 Bem-vindo ao Recrutamento 🐧</h1>
+        
+        <p>Somos uma organização secreta de Pinguins, operando nas sombras do Ártico digital. Este não é um jogo. É um teste de inteligência, tenacidade e discrição.</p>
+        <p>Vamos ver se você é capaz de entrar em nossas fileiras. **Seja preciso. Seja discreto. Boa sorte.**</p>
+
+        <div class="puzzle-box">
+            <h2>Fase 1: O Primeiro Salto</h2>
+            
+            <p>A mensagem que procuramos está escondida na chave. A chave, por sua vez, está no título do nosso ofício.</p>
+            <p>**Pista:** O que fazemos é guardado, e isso é a nossa essência.</p>
+            <p class="clue">A C D O N W G O E L K W</p>
+            
+            <input type="text" id="answer" placeholder="Insira a Chave Secreta aqui" />
+            <button onclick="checkAnswer()">Verificar Chave</button>
+            
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script>
+        // Lógica JavaScript
+        const CORRECT_ANSWER = "SECRETO"; // A chave para avançar de nível
+        
+        function checkAnswer() {
+            const userInput = document.getElementById('answer').value.toUpperCase().trim();
+            const messageElement = document.getElementById('message');
+
+            if (userInput === CORRECT_ANSWER) {
+                // SUCESSO! Avança para o próximo nível.
+                // IMPORTANTE: Aqui você deve mudar o site/página para o Nível 2.
+                messageElement.style.color = '#00FF00';
+                messageElement.innerHTML = "✅ **ACESSO CONCEDIDO!** Prepare-se para o NÍVEL 2. Redirecionando...";
+                
+                // Simulação de redirecionamento para o próximo nível.
+                // Na vida real, você criaria um arquivo nivel2.html e redirecionaria para ele.
+                // Vou usar um pequeno delay para a mensagem ser lida.
+                setTimeout(() => {
+                    // Aqui você colocaria window.location.href = "nivel2.html";
+                    alert("PARABÉNS! Você resolveu o Nível 1. Agora, a lógica para o Nível 2 precisa ser implementada.");
+                    // Reset para que a pessoa possa testar novamente, já que não temos o Nível 2.
+                    // window.location.reload(); 
+                }, 2000); 
+
+            } else {
+                // FALHA
+                messageElement.style.color = '#FF0000';
+                messageElement.innerHTML = "❌ Chave Incorreta. Pense como um Pinguim. Tente novamente.";
+            }
+        }
+    </script>
+</body>
+</html>
